@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,p;
+    cin>>n>>p;
+    //Getting the integer part of square root of a number
+    int start=0;
+    int end=n;
+    float ans;
+    int mid;
+    while(start<=end)
+    {
+        mid=(start+end)/2;
+        int square=mid*mid;
+        if(square==n)
+        {
+            ans=mid;
+            break;
+        }
+        else if(square>n)
+        {
+            end=mid-1;
+        }
+        else
+        {
+            ans=mid;
+            start=mid+1;
+        }   
+    }
+    float inc=0.1;
+    //p num of precisions
+    for(int i=0;i<p;i++)
+    {
+        ans=ans+inc;
+        while(ans*ans<n)
+        {
+            ans=ans+inc;
+        }
+        //After getting number greater then n have to go 1 step back
+        ans=ans-inc;
+        inc=inc/10;
+    }
+    cout<<ans;
+}
