@@ -1,0 +1,56 @@
+bool checkPainter(vector<int> &C,int mid,int A,int B)
+{
+   int count=1;
+   int time=0;
+   for(int i=0;i<C.size();i++)
+   {
+       time=time+C[i];
+       if(time>mid)
+       {
+           count++;
+           time=C[i];
+       }
+   }
+   if(count>A)
+   {
+       return false;
+   }
+   else
+   {
+       return true;
+   }
+}
+int Solution::paint(int A, int B, vector<int> &C) {
+    int sum=0;
+    int max=INT_MIN;
+    for(int i=0;i<C.size();i++)
+    {
+        sum=sum+C[i];    
+        if(C[i]>max)
+        {
+            max=C[i];
+        }
+    }
+    int start=max;
+    int end=sum;
+    int ans=0;
+    int mid;
+    //Basically binary search on the time to paint the boards.Checking for a min time how many painters needed.
+    while(start<=end)
+    {
+        //Solve a=everything for B=1 and at last multiply by B.
+        mid=(start+end)/2;//Allocated mid time to a painter check how many min painters reqd for the time.
+        bool check;
+        check=checkPainter(C,mid,A,B);
+        if(check)
+        {
+            ans=mid;
+            end=mid-1;//Check if more min solution exists.
+        }
+        else
+        {
+            start=mid+1;//Have to increase time
+        }
+    }
+    return ans*B;
+}
