@@ -26,7 +26,7 @@ int main()
         {
             ans=mid;
             start=mid+1;
-        }   
+        }//Do not calculate the square root   
     }
     float inc=0.1;
     //p num of precisions
