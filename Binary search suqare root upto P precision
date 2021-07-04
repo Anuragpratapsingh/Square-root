@@ -20,7 +20,7 @@ int main()
         }
         else if(square>n)
         {
-            end=mid-1;
+            end=mid;
         }
         else
         {
