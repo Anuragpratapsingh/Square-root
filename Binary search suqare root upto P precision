@@ -6,7 +6,7 @@ int main()
     cin>>n>>p;
     //Getting the integer part of square root of a number
     int start=0;
-    int end=n;
+    int end=n
     float ans;
     int mid;
     while(start<=end)
