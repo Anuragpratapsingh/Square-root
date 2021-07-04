@@ -2,6 +2,7 @@
 using namespace std;
 int main()
 {
+    //All bugs fixed
     int n,p;
     cin>>n>>p;
     //Getting the integer part of square root of a number
